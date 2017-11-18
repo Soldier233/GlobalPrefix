@@ -1,0 +1,9 @@
+MySQL:
+  address: jdbc:mysql://127.0.0.1:3306/minecraft
+  user: root
+  pwd: password
+#MySQL连接信息
+Interval: 60000
+#缓存最大保留时间 单位毫秒
+NoData: 无
+#无称号时显示的数据
