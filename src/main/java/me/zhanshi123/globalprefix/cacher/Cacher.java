@@ -12,14 +12,12 @@ public class Cacher {
     public static Cacher getInstance() {
         return instance;
     }
-    private long interval;
+
     public Cacher() {
-        instance=this;
-        interval= ConfigManager.getInstance().getInterval();
-        new CacheReleaseTask().runTaskTimer(GlobalPrefix.getInstance(),20*60L,20*60L);
+        instance = this;
     }
 
-    private HashMap<String,PlayerData> data=new HashMap<>();
+    private HashMap<String, PlayerData> data = new HashMap<>();
 
     public HashMap<String, PlayerData> getData() {
         return data;
@@ -29,44 +27,18 @@ public class Cacher {
         this.data = data;
     }
 
-
-
-    public PlayerData get(String player){
-        PlayerData playerData=null;
+    public void add(String player){
         if(data.containsKey(player)){
-            playerData=data.get(player);
-            if(playerData.getCachedTime()+interval>=System.currentTimeMillis()){
-                return playerData;
-            }
-            else{
-                long time=System.currentTimeMillis();
-                PlayerData temp=Database.getInstance().getData(player);
-                playerData=temp;
-                playerData.setCachedTime(time);
-                add(player,playerData,time);
-                return playerData;
-            }
+            data.remove(player);
         }
-        else{
-            long time=System.currentTimeMillis();
-            PlayerData temp=Database.getInstance().getData(player);
-            playerData=temp;
-            playerData.setCachedTime(time);
-            add(player,playerData,time);
-            return playerData;
-        }
+        data.put(player,Database.getInstance().getData(player));
     }
 
-    public void add(String player,PlayerData pdata,long time){
-        if(data.containsKey(player)){
-            PlayerData playerData=data.get(player);
-            if(playerData.getCachedTime()+interval>=System.currentTimeMillis()){
-                data.remove(player);
-                data.put(player,new PlayerData(player,pdata.getPrefix(),pdata.getPrefix(),time));
-            }
-        }
-        else{
-            data.put(player,new PlayerData(player,pdata.getPrefix(),pdata.getPrefix(),time));
-        }
+    public PlayerData get(String player){
+        return data.get(player);
+    }
+
+    public void remove(String player){
+        data.remove(player);
     }
 }

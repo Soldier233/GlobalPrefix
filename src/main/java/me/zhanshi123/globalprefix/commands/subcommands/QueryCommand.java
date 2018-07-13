@@ -1,9 +1,9 @@
-package me.zhanshi123.globalprefix.commands.commands.subcommands;
+package me.zhanshi123.globalprefix.commands.subcommands;
 
 import me.zhanshi123.globalprefix.ConfigManager;
 import me.zhanshi123.globalprefix.Database;
 import me.zhanshi123.globalprefix.cacher.PlayerData;
-import me.zhanshi123.globalprefix.commands.commands.SubCommand;
+import me.zhanshi123.globalprefix.commands.SubCommand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;

@@ -1,4 +1,4 @@
-package me.zhanshi123.globalprefix.commands.commands;
+package me.zhanshi123.globalprefix.commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

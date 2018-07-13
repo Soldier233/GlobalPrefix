@@ -1,7 +1,7 @@
 package me.zhanshi123.globalprefix;
 
 import me.zhanshi123.globalprefix.cacher.Cacher;
-import me.zhanshi123.globalprefix.commands.commands.Commands;
+import me.zhanshi123.globalprefix.commands.Commands;
 import me.zhanshi123.globalprefix.hooks.PrefixPlaceholder;
 import me.zhanshi123.globalprefix.metrics.Metrics;
 import org.bukkit.Bukkit;
