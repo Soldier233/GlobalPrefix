@@ -17,20 +17,22 @@ public class GlobalPrefix extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        instance=this;
+        instance = this;
         new ConfigManager();
         new Database();
         new Cacher();
         new Commands();
-        Plugin papi= Bukkit.getPluginManager().getPlugin("PlaceholderAPI");
-        if(papi==null){
+        Plugin papi = Bukkit.getPluginManager().getPlugin("PlaceholderAPI");
+        if (papi == null) {
             Bukkit.getConsoleSender().sendMessage("§6§lGlobalPrefix §7>>> §c无法找到PlaceholderAPI插件，请检查是否安装");
-        } else{
-          if(!new PrefixPlaceholder().hook()){
-              Bukkit.getConsoleSender().sendMessage("§6§lGlobalPrefix §7>>> §c注册PlaceholderAPI变量失败!");
-          }
+        } else {
+            if (!new PrefixPlaceholder().hook()) {
+                Bukkit.getConsoleSender().sendMessage("§6§lGlobalPrefix §7>>> §c注册PlaceholderAPI变量失败!");
+            }
         }
         new Metrics(instance);
+        Bukkit.getConsoleSender().sendMessage("§6§lGlobalPrefix §7>>> §a即将开始检查版本");
+        new UpdateCheckTask().runTaskAsynchronously(instance);
         Bukkit.getConsoleSender().sendMessage("§6§lGlobalPrefix §7>>> §a插件加载完成!");
     }
 
