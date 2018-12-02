@@ -26,6 +26,12 @@ public class UpdateCheckTask extends BukkitRunnable {
                     }
                 }.runTask(GlobalPrefix.getInstance());
             }
+            new BukkitRunnable(){
+                @Override
+                public void run() {
+                    Bukkit.getConsoleSender().sendMessage("§6§lGlobalPrefix §7>>> §a插件你目前使用的是最新版本");
+                }
+            }.runTask(GlobalPrefix.getInstance());
         } catch (Exception e) {
             e.printStackTrace();
         }

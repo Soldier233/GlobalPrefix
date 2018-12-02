@@ -22,6 +22,7 @@ public class GlobalPrefix extends JavaPlugin {
         new Database();
         new Cacher();
         new Commands();
+        Bukkit.getPluginManager().registerEvents(new PlayerListener(), instance);
         Plugin papi = Bukkit.getPluginManager().getPlugin("PlaceholderAPI");
         if (papi == null) {
             Bukkit.getConsoleSender().sendMessage("§6§lGlobalPrefix §7>>> §c无法找到PlaceholderAPI插件，请检查是否安装");
