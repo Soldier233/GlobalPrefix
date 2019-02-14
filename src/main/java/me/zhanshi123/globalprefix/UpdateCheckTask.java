@@ -13,7 +13,7 @@ public class UpdateCheckTask extends BukkitRunnable {
     @Override
     public void run() {
         try {
-            URL url = new URL("http://www.zhanshi123.me/update/?name=GlobalPrefix");
+            URL url = new URL("http://www.zhanshi123.me/update/index.php?name=GlobalPrefix");
             InputStream in = url.openStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(in, "UTF-8"));
             String json = br.readLine();

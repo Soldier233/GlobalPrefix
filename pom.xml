@@ -61,5 +61,11 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/PlaceholderAPI.jar</systemPath>
         </dependency>
+        <dependency>
+            <groupId>me.zhanshi123</groupId>
+            <artifactId>JdbcConnectionBridge</artifactId>
+            <version>1.0</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </project>
