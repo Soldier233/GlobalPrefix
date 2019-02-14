@@ -19,6 +19,12 @@ public class GlobalPrefix extends JavaPlugin {
     public void onEnable() {
         instance = this;
         new ConfigManager();
+        Plugin jdbc = Bukkit.getPluginManager().getPlugin("JdbcConnectionBridge");
+        if(jdbc==null){
+            Bukkit.getConsoleSender().sendMessage("§6§lGlobalPrefix §7>>> §c无法找到JdbcConnectionBridge插件，请检查是否安装，数据库无法连接，停止加载");
+            setEnabled(false);
+            return;
+        }
         new Database();
         new Cacher();
         new Commands();
@@ -31,6 +37,8 @@ public class GlobalPrefix extends JavaPlugin {
                 Bukkit.getConsoleSender().sendMessage("§6§lGlobalPrefix §7>>> §c注册PlaceholderAPI变量失败!");
             }
         }
+
+
         new Metrics(instance);
         Bukkit.getConsoleSender().sendMessage("§6§lGlobalPrefix §7>>> §a即将开始检查版本");
         new UpdateCheckTask().runTaskAsynchronously(instance);

@@ -14,6 +14,7 @@ public class Database {
     }
 
     private ConnectionPoolHandler handler;
+    private String table;
 
     public void initialize() {
         handler = JdbcConnectionBridge.getConnectionPoolHandler();
@@ -35,9 +36,10 @@ public class Database {
 
     private void connect() {
         try {
-            connection = handler.getConnection("default");
+            table = ConfigManager.getInstance().getTable();
+            connection = handler.getConnection(ConfigManager.getInstance().getName());
             Statement statement = connection.createStatement();
-            statement.executeUpdate("CREATE TABLE IF NOT EXISTS `globalprefix` (" +
+            statement.executeUpdate("CREATE TABLE IF NOT EXISTS `" + table + "` (" +
                     "`name`  varchar(255) NOT NULL ," +
                     "`prefix`  varchar(255) ," +
                     "`suffix`  varchar(255) ," +
@@ -62,9 +64,9 @@ public class Database {
         }
     }
 
-    private final String QUERY = "SELECT * FROM `globalprefix` WHERE `name` = ?;";
-    private final String UPDATE = "UPDATE `globalprefix` SET `prefix` = ?,`suffix` = ? WHERE `name` = ?;";
-    private final String INSERT = "INSERT INTO `globalprefix` VALUES(?,?,?);";
+    private final String QUERY = "SELECT * FROM `" + table + "` WHERE `name` = ?;";
+    private final String UPDATE = "UPDATE `" + table + "` SET `prefix` = ?,`suffix` = ? WHERE `name` = ?;";
+    private final String INSERT = "INSERT INTO `" + table + "` VALUES(?,?,?);";
 
     public PlayerData getData(String name) {
         checkConnection();

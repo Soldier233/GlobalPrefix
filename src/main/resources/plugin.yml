@@ -1,7 +1,7 @@
 name: GlobalPrefix
 version: ${project.version}
 main: me.zhanshi123.globalprefix.GlobalPrefix
-softdepend: [PlaceholderAPI]
+softdepend: [PlaceholderAPI,JdbcConnectionBridge]
 authors: [Soldier]
 commands:
   gp:
