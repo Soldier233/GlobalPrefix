@@ -47,6 +47,9 @@ public class Database {
                     "UNIQUE INDEX `name` (`name`) USING BTREE " +
                     ");");
             statement.close();
+            QUERY = "SELECT * FROM `" + table + "` WHERE `name` = ?;";
+            UPDATE = "UPDATE `" + table + "` SET `prefix` = ?,`suffix` = ? WHERE `name` = ?;";
+            INSERT = "INSERT INTO `" + table + "` VALUES(?,?,?);";
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -64,9 +67,9 @@ public class Database {
         }
     }
 
-    private final String QUERY = "SELECT * FROM `" + table + "` WHERE `name` = ?;";
-    private final String UPDATE = "UPDATE `" + table + "` SET `prefix` = ?,`suffix` = ? WHERE `name` = ?;";
-    private final String INSERT = "INSERT INTO `" + table + "` VALUES(?,?,?);";
+    private String QUERY;
+    private String UPDATE;
+    private String INSERT;
 
     public PlayerData getData(String name) {
         checkConnection();
