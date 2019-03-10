@@ -24,6 +24,7 @@ public class RemoveCommand extends SubCommand {
                 data.setPrefix(null);
                 data.setSuffix(null);
             }
+            Database.getInstance().deleteData(name);
             sender.sendMessage("§a完成");
         }
         return true;

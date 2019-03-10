@@ -50,6 +50,7 @@ public class Database {
             QUERY = "SELECT * FROM `" + table + "` WHERE `name` = ?;";
             UPDATE = "UPDATE `" + table + "` SET `prefix` = ?,`suffix` = ? WHERE `name` = ?;";
             INSERT = "INSERT INTO `" + table + "` VALUES(?,?,?);";
+            DELETE = "DELETE FROM `" + table + "` WHERE `name` = ?;";
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -70,6 +71,7 @@ public class Database {
     private String QUERY;
     private String UPDATE;
     private String INSERT;
+    private String DELETE;
 
     public PlayerData getData(String name) {
         checkConnection();
@@ -110,6 +112,18 @@ public class Database {
             preparedStatement.setString(1, data.getName());
             preparedStatement.setString(2, data.getPrefix());
             preparedStatement.setString(3, data.getSuffix());
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteData(String name) {
+        checkConnection();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(DELETE);
+            preparedStatement.setString(1, name);
             preparedStatement.executeUpdate();
             preparedStatement.close();
         } catch (SQLException e) {
