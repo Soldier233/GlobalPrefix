@@ -16,15 +16,15 @@ public class QueryCommand extends SubCommand{
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if(sender instanceof Player){
-            Player player=(Player) sender;
-            String name=player.getName();
-            PlayerData data=Database.getInstance().getData(name);
-            if(data==null){
+        if (sender instanceof Player) {
+            Player player = (Player) sender;
+            String name = player.getName();
+            PlayerData data = Database.getInstance().getData(name);
+            if (data == null) {
                 player.sendMessage("§a§l你没有称号");
-            } else{
-              player.sendMessage("§a你的前缀:"+getPrefix(data).replace("&","§"));
-              player.sendMessage("§a你的后缀:"+getSuffix(data).replace("&","§"));
+            } else {
+                player.sendMessage("§a你的前缀:" + getPrefix(data).replace("&", "§"));
+                player.sendMessage("§a你的后缀:" + getSuffix(data).replace("&", "§"));
             }
         }
         return true;

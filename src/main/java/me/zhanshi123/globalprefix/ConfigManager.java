@@ -43,6 +43,6 @@ public class ConfigManager {
     }
 
     public String getNoData() {
-        return config.getString("NoData");
+        return config.getString("NoData","-");
     }
 }

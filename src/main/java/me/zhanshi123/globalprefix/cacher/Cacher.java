@@ -1,8 +1,6 @@
 package me.zhanshi123.globalprefix.cacher;
 
-import me.zhanshi123.globalprefix.ConfigManager;
 import me.zhanshi123.globalprefix.Database;
-import me.zhanshi123.globalprefix.GlobalPrefix;
 
 import java.util.HashMap;
 
@@ -27,18 +25,18 @@ public class Cacher {
         this.data = data;
     }
 
-    public void add(String player){
-        if(data.containsKey(player)){
+    public void add(String player) {
+        if (data.containsKey(player)) {
             data.remove(player);
         }
-        data.put(player,Database.getInstance().getData(player));
+        data.put(player, Database.getInstance().getData(player));
     }
 
-    public PlayerData get(String player){
+    public PlayerData get(String player) {
         return data.get(player);
     }
 
-    public void remove(String player){
+    public void remove(String player) {
         data.remove(player);
     }
 }

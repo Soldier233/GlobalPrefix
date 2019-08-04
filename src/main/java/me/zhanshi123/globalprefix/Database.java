@@ -37,7 +37,7 @@ public class Database {
     private void connect() {
         try {
             table = ConfigManager.getInstance().getTable();
-            connection = handler.getConnection(ConfigManager.getInstance().getName());
+            connection = handler.getConnection(ConfigManager.getInstance().getName(), GlobalPrefix.getInstance());
             Statement statement = connection.createStatement();
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS `" + table + "` (" +
                     "`name`  varchar(255) NOT NULL ," +

@@ -2,7 +2,6 @@ package me.zhanshi123.globalprefix;
 
 import me.zhanshi123.globalprefix.cacher.Cacher;
 import me.zhanshi123.globalprefix.commands.Commands;
-import me.zhanshi123.globalprefix.hooks.PrefixPlaceholder;
 import me.zhanshi123.globalprefix.metrics.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -20,7 +19,7 @@ public class GlobalPrefix extends JavaPlugin {
         instance = this;
         new ConfigManager();
         Plugin jdbc = Bukkit.getPluginManager().getPlugin("JdbcConnectionBridge");
-        if(jdbc==null){
+        if (jdbc == null) {
             Bukkit.getConsoleSender().sendMessage("§6§lGlobalPrefix §7>>> §c无法找到JdbcConnectionBridge插件，请检查是否安装，数据库无法连接，停止加载");
             setEnabled(false);
             return;
@@ -30,15 +29,9 @@ public class GlobalPrefix extends JavaPlugin {
         new Commands();
         Bukkit.getPluginManager().registerEvents(new PlayerListener(), instance);
         Plugin papi = Bukkit.getPluginManager().getPlugin("PlaceholderAPI");
-        if (papi == null) {
-            Bukkit.getConsoleSender().sendMessage("§6§lGlobalPrefix §7>>> §c无法找到PlaceholderAPI插件，请检查是否安装");
-        } else {
-            if (!new PrefixPlaceholder().hook()) {
-                Bukkit.getConsoleSender().sendMessage("§6§lGlobalPrefix §7>>> §c注册PlaceholderAPI变量失败!");
-            }
+        if (papi != null) {
+            Bukkit.getConsoleSender().sendMessage("§6§lGlobalPrefix §7>>> §c新版本的插件若需使用PlaceholderAPI,请按照帖子指示安装PlaceholderAPI拓展");
         }
-
-
         new Metrics(instance);
         Bukkit.getConsoleSender().sendMessage("§6§lGlobalPrefix §7>>> §a即将开始检查版本");
         new UpdateCheckTask().runTaskAsynchronously(instance);

@@ -1,7 +1,7 @@
 package me.zhanshi123.globalprefix.cacher;
 
 public class PlayerData {
-    private String name,prefix,suffix;
+    private String name, prefix, suffix;
     private long cachedTime;
 
     public PlayerData(String name, String prefix, String suffix, long cachedTime) {
@@ -15,7 +15,7 @@ public class PlayerData {
         this.name = name;
         this.prefix = prefix;
         this.suffix = suffix;
-        cachedTime=System.currentTimeMillis();
+        cachedTime = System.currentTimeMillis();
     }
 
     public long getCachedTime() {
