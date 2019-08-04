@@ -45,6 +45,10 @@
             <id>sonatype</id>
             <url>https://oss.sonatype.org/content/groups/public/</url>
         </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://www.jitpack.io</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -55,10 +59,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>me.zhanshi123</groupId>
+            <groupId>com.gitee.Soldier233</groupId>
             <artifactId>JdbcConnectionBridge</artifactId>
             <version>1.1</version>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
