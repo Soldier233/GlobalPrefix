@@ -3,6 +3,7 @@ package me.zhanshi123.globalprefix;
 import me.zhanshi123.globalprefix.cacher.Cacher;
 import me.zhanshi123.globalprefix.commands.Commands;
 import me.zhanshi123.globalprefix.metrics.Metrics;
+import me.zhanshi123.globalprefix.placholder.PlaceholderHook;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -30,7 +31,7 @@ public class GlobalPrefix extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new PlayerListener(), instance);
         Plugin papi = Bukkit.getPluginManager().getPlugin("PlaceholderAPI");
         if (papi != null) {
-            Bukkit.getConsoleSender().sendMessage("§6§lGlobalPrefix §7>>> §c新版本的插件若需使用PlaceholderAPI,请按照帖子指示安装PlaceholderAPI拓展");
+            new PlaceholderHook().register();
         }
         new Metrics(instance);
         Bukkit.getConsoleSender().sendMessage("§6§lGlobalPrefix §7>>> §a即将开始检查版本");
