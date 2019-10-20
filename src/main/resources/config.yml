@@ -5,3 +5,5 @@ MySQL:
   #表名
 NoData: 无
 #无称号时显示的数据
+uuid: false
+#是否启用uuid模式

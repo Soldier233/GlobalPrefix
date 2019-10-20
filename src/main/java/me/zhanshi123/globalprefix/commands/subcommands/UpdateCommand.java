@@ -1,8 +1,10 @@
 package me.zhanshi123.globalprefix.commands.subcommands;
 
 import me.zhanshi123.globalprefix.Database;
+import me.zhanshi123.globalprefix.GlobalPrefix;
 import me.zhanshi123.globalprefix.cacher.PlayerData;
 import me.zhanshi123.globalprefix.commands.SubCommand;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
@@ -19,7 +21,7 @@ public class UpdateCommand extends SubCommand {
                 sender.sendMessage("§c参数不正确!");
                 return false;
             } else {
-                String name = args[1];
+                String name = GlobalPrefix.getInstance().getPlayerName(Bukkit.getPlayer(args[1]));
                 String type = args[2];
                 String value = args[3];
                 PlayerData data = Database.getInstance().getData(name);

@@ -2,13 +2,14 @@ package me.zhanshi123.globalprefix.commands.subcommands;
 
 import me.zhanshi123.globalprefix.ConfigManager;
 import me.zhanshi123.globalprefix.Database;
+import me.zhanshi123.globalprefix.GlobalPrefix;
 import me.zhanshi123.globalprefix.cacher.PlayerData;
 import me.zhanshi123.globalprefix.commands.SubCommand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class QueryCommand extends SubCommand{
+public class QueryCommand extends SubCommand {
 
     public QueryCommand() {
         super("query");
@@ -18,7 +19,7 @@ public class QueryCommand extends SubCommand{
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            String name = player.getName();
+            String name = GlobalPrefix.getInstance().getPlayerName(player);
             PlayerData data = Database.getInstance().getData(name);
             if (data == null) {
                 player.sendMessage("§a§l你没有称号");
@@ -30,29 +31,28 @@ public class QueryCommand extends SubCommand{
         return true;
 
     }
-    String noData= ConfigManager.getInstance().getNoData();
-    private String getPrefix(PlayerData data){
-        if(data==null){
+
+    String noData = ConfigManager.getInstance().getNoData();
+
+    private String getPrefix(PlayerData data) {
+        if (data == null) {
             return noData;
-        }
-        else{
-            if(data.getPrefix()==null){
+        } else {
+            if (data.getPrefix() == null) {
                 return noData;
-            }
-            else{
+            } else {
                 return data.getPrefix();
             }
         }
     }
-    private String getSuffix(PlayerData data){
-        if(data==null){
+
+    private String getSuffix(PlayerData data) {
+        if (data == null) {
             return noData;
-        }
-        else{
-            if(data.getSuffix()==null){
+        } else {
+            if (data.getSuffix() == null) {
                 return noData;
-            }
-            else{
+            } else {
                 return data.getSuffix();
             }
         }

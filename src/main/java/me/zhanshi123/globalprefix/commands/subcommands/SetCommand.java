@@ -1,6 +1,7 @@
 package me.zhanshi123.globalprefix.commands.subcommands;
 
 import me.zhanshi123.globalprefix.Database;
+import me.zhanshi123.globalprefix.GlobalPrefix;
 import me.zhanshi123.globalprefix.cacher.PlayerData;
 import me.zhanshi123.globalprefix.commands.SubCommand;
 import org.bukkit.command.Command;
@@ -16,7 +17,7 @@ public class SetCommand extends SubCommand {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (sender.hasPermission("gp.set") && sender instanceof Player) {
             Player player = (Player) sender;
-            String name = player.getName();
+            String name = GlobalPrefix.getInstance().getPlayerName(player);
             if (args.length != 3) {
                 sender.sendMessage("§c参数不正确!");
                 return true;

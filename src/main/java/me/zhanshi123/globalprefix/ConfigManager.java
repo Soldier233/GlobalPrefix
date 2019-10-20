@@ -43,6 +43,10 @@ public class ConfigManager {
     }
 
     public String getNoData() {
-        return config.getString("NoData","-");
+        return config.getString("NoData", "-");
+    }
+
+    public boolean isUUID() {
+        return config.getBoolean("uuid", false);
     }
 }

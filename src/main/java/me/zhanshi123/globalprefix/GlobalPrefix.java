@@ -5,6 +5,7 @@ import me.zhanshi123.globalprefix.commands.Commands;
 import me.zhanshi123.globalprefix.metrics.Metrics;
 import me.zhanshi123.globalprefix.placholder.PlaceholderHook;
 import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -42,5 +43,13 @@ public class GlobalPrefix extends JavaPlugin {
     @Override
     public void onDisable() {
         Database.getInstance().close();
+    }
+
+    public String getPlayerName(Player player) {
+        if (ConfigManager.getInstance().isUUID()) {
+            return player.getUniqueId().toString();
+        } else {
+            return player.getName();
+        }
     }
 }

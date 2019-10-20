@@ -1,8 +1,10 @@
 package me.zhanshi123.globalprefix.commands.subcommands;
 
 import me.zhanshi123.globalprefix.Database;
+import me.zhanshi123.globalprefix.GlobalPrefix;
 import me.zhanshi123.globalprefix.cacher.PlayerData;
 import me.zhanshi123.globalprefix.commands.SubCommand;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
@@ -19,6 +21,7 @@ public class RemoveCommand extends SubCommand {
                 return true;
             }
             String name = args[1];
+            name = GlobalPrefix.getInstance().getPlayerName(Bukkit.getPlayer(name));
             PlayerData data = Database.getInstance().getData(name);
             if (data != null) {
                 data.setPrefix(null);
