@@ -40,9 +40,9 @@ public class Database {
             connection = handler.getConnection(ConfigManager.getInstance().getName(), GlobalPrefix.getInstance());
             Statement statement = connection.createStatement();
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS `" + table + "` (" +
-                    "`name`  varchar(255) NOT NULL ," +
-                    "`prefix`  varchar(255) ," +
-                    "`suffix`  varchar(255) ," +
+                    "`name`  varchar(50) NOT NULL ," +
+                    "`prefix`  varchar(50) ," +
+                    "`suffix`  varchar(50) ," +
                     "PRIMARY KEY (`name`)," +
                     "UNIQUE INDEX `name` (`name`) USING BTREE " +
                     ");");
