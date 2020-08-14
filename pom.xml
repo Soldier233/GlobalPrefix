@@ -6,7 +6,7 @@
 
     <groupId>me.zhanshi123</groupId>
     <artifactId>GlobalPrefix</artifactId>
-    <version>1.7</version>
+    <version>1.8</version>
     <packaging>jar</packaging>
 
     <name>GlobalPrefix</name>
@@ -52,10 +52,6 @@
         <repository>
             <id>placeholderapi</id>
             <url>http://repo.extendedclip.com/content/repositories/placeholderapi/</url>
-        </repository>
-        <repository>
-            <id>clips-public-repo</id>
-            <url>http://repo.extendedclip.com/content/repositories/public/</url>
         </repository>
     </repositories>
 

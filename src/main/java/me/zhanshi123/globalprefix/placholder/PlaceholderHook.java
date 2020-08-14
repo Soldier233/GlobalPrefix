@@ -36,7 +36,7 @@ public class PlaceholderHook extends PlaceholderExpansion {
         if (!Bukkit.getPluginManager().isPluginEnabled(getRequiredPlugin())) {
             return false;
         }
-        return super.register();
+        return true;
     }
 
     @Override
