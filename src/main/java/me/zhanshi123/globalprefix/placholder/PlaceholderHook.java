@@ -40,6 +40,11 @@ public class PlaceholderHook extends PlaceholderExpansion {
     }
 
     @Override
+    public boolean persist(){
+        return true;
+    }
+
+    @Override
     public String onRequest(OfflinePlayer offlinePlayer, String params) {
         if (offlinePlayer == null || !offlinePlayer.isOnline()) {
             return null;
