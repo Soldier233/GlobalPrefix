@@ -3,6 +3,6 @@ version: ${project.version}
 main: me.zhanshi123.globalprefix.GlobalPrefix
 softdepend: [PlaceholderAPI,JdbcConnectionBridge]
 authors: [Soldier]
-api-verison: 1.16
+api-verison: 1.13
 commands:
   gp:
